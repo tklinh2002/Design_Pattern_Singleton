@@ -25,7 +25,9 @@ public class Main2 {
                 System.out.println("Instance "+ Thread.currentThread().getName()+" " + singleton);
             }
         };
-        int num = 10;
+
+        int num = 20;
+        double start = System.currentTimeMillis();
         Thread[] threads = new Thread[num];
         for (int i = 0; i < num; i++) {
             threads[i] = new Thread(runnable);
@@ -33,18 +35,7 @@ public class Main2 {
         for (Thread thread: threads) {
             thread.start();
         }
-
-//        Thread thread1 = new Thread(runnable);
-//        Thread thread2 = new Thread(runnable);
-//        Thread thread3 = new Thread(runnable2,"t3");
-//        Thread thread4 = new Thread(runnable2, "t4");
-//        Thread thread5 = new Thread(runnable3,"t5");
-//        Thread thread6 = new Thread(runnable3,"t6");
-//        thread3.start();
-//        thread1.start();
-//        thread2.start();
-//        thread4.start();
-//        thread5.start();
-//        thread6.start();
+        double end = System.currentTimeMillis();
+        System.out.println("time: "+(end-start));
     }
 }
